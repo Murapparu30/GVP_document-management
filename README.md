@@ -1,6 +1,35 @@
-# EvoVP - QMS Local App
+# GVP Document Management
 
-医療機器QMS（品質マネジメントシステム）対応の完全ローカル動作帳票管理アプリケーション
+医療機器GVP/QMS対応の完全ローカル動作帳票管理アプリケーション
+
+## 📥 ダウンロード
+
+**Windows / Mac / Linux 対応**
+
+👉 [最新版をダウンロード](https://github.com/Murapparu30/GVP_document-management/releases)
+
+| OS | ファイル |
+|----|---------|
+| Windows | `QMS.Local.App.Setup.x.x.x.exe` |
+| Mac (Apple Silicon) | `QMS.Local.App-x.x.x-arm64.dmg` |
+| Linux | `QMS.Local.App-x.x.x.AppImage` |
+
+### ⚠️ Mac版のインストール方法
+
+Mac版は署名なしのため、以下の手順が必要です：
+
+1. ダウンロードしたDMGファイルに対してターミナルで実行：
+   ```bash
+   xattr -cr ~/Downloads/QMS.Local.App-*.dmg
+   ```
+2. DMGをダブルクリックして開く
+3. アプリをApplicationsフォルダにドラッグ
+4. Applicationsでアプリを**右クリック → 「開く」**を選択
+
+### Windows版について
+
+初回起動時に「Windows によって PC が保護されました」と表示されることがあります。
+「詳細情報」→「実行」をクリックして起動してください。
 
 ## 🚀 Quick Start
 
