@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     strategy:
-      fail-fast: false  # 1つ失敗しても他を続行
+      fail-fast: false
       matrix:
         include:
           - os: macos-latest
@@ -31,7 +31,6 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      # Linux用のビルド依存パッケージをインストール
       - name: Install Linux dependencies
         if: runner.os == 'Linux'
         run: |
@@ -41,11 +40,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build (TypeScript and Vite)
         run: npm run build
 
-      - name: Package
-        run: npm run package
+      - name: Package with electron-builder
+        run: npx electron-builder --publish never
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
