@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false  # 1つ失敗しても他を続行
       matrix:
         include:
           - os: macos-latest
@@ -29,6 +30,13 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+
+      # Linux用のビルド依存パッケージをインストール
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libarchive-tools rpm
 
       - name: Install dependencies
         run: npm install
