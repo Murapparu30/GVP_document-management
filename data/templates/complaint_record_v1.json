@@ -1,0 +1,50 @@
+{
+  "template_id": "complaint_record_v1",
+  "template_name": "苦情処理記録",
+  "category": "GVP",
+  "version": "1.0.0",
+  "regulation_ref": ["GVP省令 関連条文メモ用"],
+  "fields": [
+    { "id": "complaint_id", "label": "苦情番号", "type": "text", "required": true, "group": "meta" },
+    { "id": "complaint_date", "label": "受付日", "type": "date", "required": true, "group": "meta" },
+    { "id": "received_from", "label": "情報提供者（顧客・代理店等）", "type": "text", "required": true, "group": "meta" },
+    { "id": "product_name", "label": "製品名／型式", "type": "text", "required": true, "group": "meta" },
+    { "id": "lot_no", "label": "ロット／シリアル番号", "type": "text", "required": false, "group": "meta" },
+    { "id": "description", "label": "苦情内容", "type": "textarea", "required": true, "group": "body" },
+    {
+      "id": "ai_cause_analysis",
+      "label": "原因分析（AI支援）",
+      "type": "textarea",
+      "required": false,
+      "group": "body",
+      "ai_assist": true,
+      "ai_prompt": "以下の苦情内容に対して考えられる原因を3〜5個、可能性が高い順に提案してください。\n\n【苦情内容】\n{{description}}"
+    },
+    {
+      "id": "temporary_action",
+      "label": "暫定対応（AI提案可）",
+      "type": "textarea",
+      "required": false,
+      "group": "body",
+      "ai_assist": true,
+      "ai_prompt": "次の苦情内容に対する暫定的な安全確保策を提案してください。\n\n【苦情内容】\n{{description}}"
+    },
+    {
+      "id": "linked_corrective_id",
+      "label": "関連是正処置番号",
+      "type": "link",
+      "required": false,
+      "group": "meta",
+      "target_template": "corrective_action_v1"
+    },
+    {
+      "id": "status",
+      "label": "進捗状況",
+      "type": "select",
+      "required": true,
+      "group": "meta",
+      "options": ["受付", "調査中", "対応中", "完了"]
+    },
+    { "id": "confirmed_by", "label": "確認者", "type": "text", "required": true, "group": "meta" }
+  ]
+}

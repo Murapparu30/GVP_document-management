@@ -1,0 +1,55 @@
+{
+  "layout_id": "complaint_record_v1_layout",
+  "template_id": "complaint_record_v1",
+  "page_size": "A4",
+  "orientation": "portrait",
+  "margins": {
+    "top": 40,
+    "bottom": 40,
+    "left": 40,
+    "right": 40
+  },
+  "header": {
+    "show_title": true,
+    "show_record_id": true,
+    "show_version": true,
+    "show_date": true
+  },
+  "footer": {
+    "show_page_number": true,
+    "show_export_date": true
+  },
+  "sections": [
+    {
+      "title": "基本情報",
+      "fields": [
+        "complaint_id",
+        "complaint_date",
+        "received_from",
+        "product_name",
+        "lot_no",
+        "status"
+      ]
+    },
+    {
+      "title": "苦情内容",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "title": "分析・対応",
+      "fields": [
+        "cause_analysis",
+        "temporary_action",
+        "linked_corrective_id"
+      ]
+    },
+    {
+      "title": "確認",
+      "fields": [
+        "confirmed_by"
+      ]
+    }
+  ]
+}

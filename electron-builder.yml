@@ -1,0 +1,30 @@
+appId: com.qms.localapp
+productName: QMS Local App
+directories:
+  output: release
+  buildResources: build
+afterPack: scripts/afterPack.cjs
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+  - node_modules/sql.js/**/*
+extraResources:
+  - data/**/*
+asar: true
+asarUnpack:
+  - "**/node_modules/sql.js/**/*"
+win:
+  target:
+    - nsis
+mac:
+  identity: null
+  target:
+    - dmg
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: node_modules/app-builder-lib/templates/entitlements.mac.plist
+  entitlementsInherit: node_modules/app-builder-lib/templates/entitlements.mac.plist
+linux:
+  target:
+    - AppImage

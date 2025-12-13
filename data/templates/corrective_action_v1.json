@@ -1,0 +1,65 @@
+{
+  "template_id": "corrective_action_v1",
+  "template_name": "是正処置記録",
+  "category": "QMS",
+  "version": "1.0.0",
+  "regulation_ref": ["QMS省令 是正・予防処置関連"],
+  "fields": [
+    { "id": "ca_id", "label": "是正処置番号", "type": "text", "required": true, "group": "meta" },
+    { "id": "source_record_type", "label": "発端記録種別（例：苦情／内部監査など）", "type": "text", "required": true, "group": "meta" },
+    { "id": "source_record_id", "label": "発端記録番号", "type": "text", "required": true, "group": "meta" },
+    { "id": "product_name", "label": "対象製品名／型式", "type": "text", "required": false, "group": "meta" },
+    { "id": "lot_no", "label": "ロット／シリアル番号", "type": "text", "required": false, "group": "meta" },
+    { "id": "problem_summary", "label": "問題の概要", "type": "textarea", "required": true, "group": "body" },
+    {
+      "id": "root_cause",
+      "label": "真因（Root Cause）（AI支援）",
+      "type": "textarea",
+      "required": false,
+      "group": "body",
+      "ai_assist": true,
+      "ai_prompt": "以下の問題概要と発端記録情報をもとに、真因（Root Cause）候補を3〜5個、論理的な因果関係を含めて提案してください。\n\n【問題の概要】\n{{problem_summary}}\n\n【発端記録種別】\n{{source_record_type}}\n\n【発端記録番号】\n{{source_record_id}}"
+    },
+    {
+      "id": "corrective_action_plan",
+      "label": "是正処置内容（AI提案可）",
+      "type": "textarea",
+      "required": true,
+      "group": "body",
+      "ai_assist": true,
+      "ai_prompt": "以下の問題概要と真因情報をもとに、是正処置案を3〜5個提案してください。工程変更、教育、手順書改訂、設計変更などカテゴリも含めてください。\n\n【問題の概要】\n{{problem_summary}}\n\n【真因】\n{{root_cause}}"
+    },
+    { "id": "implementation_responsible", "label": "実施責任者", "type": "text", "required": true, "group": "meta" },
+    { "id": "due_date", "label": "実施期限", "type": "date", "required": true, "group": "meta" },
+    { "id": "completed_date", "label": "完了日", "type": "date", "required": false, "group": "meta" },
+    {
+      "id": "effectiveness_check",
+      "label": "有効性確認結果",
+      "type": "textarea",
+      "required": false,
+      "group": "body"
+    },
+    {
+      "id": "status",
+      "label": "進捗状況",
+      "type": "select",
+      "required": true,
+      "group": "meta",
+      "options": ["計画中", "実施中", "完了", "有効性確認中", "クローズ"]
+    },
+    {
+      "id": "related_complaint_id",
+      "label": "関連苦情番号",
+      "type": "text",
+      "required": false,
+      "group": "meta"
+    },
+    {
+      "id": "confirmed_by",
+      "label": "確認者",
+      "type": "text",
+      "required": true,
+      "group": "meta"
+    }
+  ]
+}

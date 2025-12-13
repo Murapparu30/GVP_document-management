@@ -1,0 +1,69 @@
+{
+  "layout_id": "corrective_action_v1_layout",
+  "template_id": "corrective_action_v1",
+  "page_size": "A4",
+  "orientation": "portrait",
+  "margins": {
+    "top": 40,
+    "bottom": 40,
+    "left": 40,
+    "right": 40
+  },
+  "header": {
+    "show_title": true,
+    "show_record_id": true,
+    "show_version": true,
+    "show_date": true
+  },
+  "footer": {
+    "show_page_number": true,
+    "show_export_date": true
+  },
+  "sections": [
+    {
+      "title": "基本情報",
+      "fields": [
+        "ca_id",
+        "source_record_type",
+        "source_record_id",
+        "product_name",
+        "lot_no",
+        "status"
+      ]
+    },
+    {
+      "title": "問題の詳細",
+      "fields": [
+        "problem_summary"
+      ]
+    },
+    {
+      "title": "原因分析・是正処置",
+      "fields": [
+        "root_cause",
+        "corrective_action_plan"
+      ]
+    },
+    {
+      "title": "実施管理",
+      "fields": [
+        "implementation_responsible",
+        "due_date",
+        "completed_date"
+      ]
+    },
+    {
+      "title": "有効性確認",
+      "fields": [
+        "effectiveness_check"
+      ]
+    },
+    {
+      "title": "関連記録・確認",
+      "fields": [
+        "related_complaint_id",
+        "confirmed_by"
+      ]
+    }
+  ]
+}
