@@ -17,11 +17,14 @@ win:
   target:
     - nsis
 mac:
-  identity: null
   target:
     - dmg
-  hardenedRuntime: false
+  hardenedRuntime: true
   gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  notarize:
+    teamId: 8D66926P7A
 linux:
   target:
     - AppImage
